@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let myBook = new Object();
+        myBook.title = "어린왕자";
+        myBook.price = 6000;
+        myBook.intro = function() {
+            return this.title+"입니다. "+this.price+"입니다";
+        };
+        myBook.discount = function() {
+            let dis_10p = this.price *0.1; //원래가격의 10%금액
+            this.price = this.price - dis_10p; //원래가격에서 10%를 뺀 금액이 다시 할당
+        };
+
+        //실습2
+
+        let myWallet = new Object();
+        myWallet.owner = "홍길동";
+        myWallet.money = 10000;
+        myWallet.show = function() {
+            return "현재"+this.money+"원이 남았습니다";
+        };
+        myWallet.buy = function(pay) { //물건금액(매개변수)을 받아와서 현재의 돈에서 감소
+            //매개변수 이름을 원하는 이름으로 작성. 값을 넣어주면 함수 적용.
+            console.log(pay); //매개변수를 통해 값이 제대로 들어왔는지 확인
+
+            //if문
+            //pay가 money보다 크다면 물건을 살 수 없다 문자열 리턴
+            if(pay>this.money) {
+                return "물건을 살 수 없다";
+            }
+            else{
+                //아니면 남은 금액을 저장
+            this.money = this.money - pay; //= 남은 금액 저장 this.money -= pay;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //for 반복문 - 횟수 반복
+        //i=0 i<10 : i의 값  0~9 : 10번반복
+        //i=1 i<11 , i<=10 : i의 값 1~10 : 10번반복
+        let sum= 0;
+        for (let i=0; i<10 ; i++) {
+            sum += i;
+            document.write("<p>반갑습니다</p>")
+        }
+        document.write(sum)
+
+        //반복문 실습
+
+        for (let i = 10 ;  i>0; i--) {
+            document.write(`<p>${i}<.p>`);
+        }
+
+        let dan = 2;
+        for (let i=1; i<10 ; i++) {
+            document.write(`<p>${dan}x${i}=${dan*i}</p>`);
+        }
+
+        //for in 실습
+        let scoreArray = [79,40,80,90,40]
+        for (let i scoreArray) {
+            if (scoreArray[i] >=60) {
+                document.write(`<p>${i+1} : ${scoreArray[i]}, 합격입니다.</p>`)
+            }
+            else {
+                document.write(`<p>${Number(i)+1} : ${scoreArray[i]}), 불합격입니다.</p>`)
+            }
+        } 
+        let index =1;
+        for (let score of scoreArray) {
+            if(score >60) {
+                document.write(`<p>${index} : 합격입니다.</p>`)
+            }
+            else {
+                document.write(`<p>${index} : 불합격입니다.</p>`)
+            }
+            index++;
+        }
+    </script>
+</body>
+</html>

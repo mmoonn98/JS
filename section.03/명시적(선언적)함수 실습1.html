@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Print(text) {
+            document.write(`<h3>${text}</h3>`);
+        }
+    </script>
+</head>
+<body>
+    <script>
+        //Print(text)>document.write(); 
+        //인수1개를 <h3></h3>넣어서 document.write();로 출력하는 함수
+
+        Print(123); //숫자값
+        Print("문자"); //문자값
+        let word = "변수에들어간 문자";
+        Print(word);
+
+        //Muti(a,b)
+        //인수2개를 받아와서 두 수의 곱을 return하는 함수
+
+        function Multi(a, b) {
+            let num = a*b;
+            return num;
+        }
+        //Show(array)
+        //배열을 인수로 받아서 배열 안에 있는 값을 화면에 출력하는 함수
+
+        function Show(array) {
+            for (i of array) {
+                document.write(`${i}.`); 
+            }
+        }
+    </script>
+</body>
+</html>

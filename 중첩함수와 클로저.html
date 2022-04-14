@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function f( ) {
+            let value = 123;
+            function g() {
+                alert(value);
+            }
+            g();
+        }
+        f();
+
+        //중첩함수 실습 1
+        function add(a,b) {
+            let sum = a+b;
+            function printNum() {
+                document.write(`합 : %{sum}`)
+            }
+            printNum();
+        }
+        add(5,6);
+
+        let globalCount = 0;
+        let localCount = 0; 
+        function CountG() {
+            return localCount +=1;
+        };
+        }
+
+        function CountL() {
+            let localCount = 0; //이 함수를 전역 변수처럼 사용
+            function plus() { //return을 통해 익명함수를 되돌려줌
+                return localCount +=1;
+            };
+        }
+
+        //클로저 함수를 사용하기 위한 함수
+        let countTest = CountL();
+
+        alert( countTest() );
+        alert( countTest() );
+        alert( countTest() );
+
+        //람다형식
+        let lamda = (function (lamda) { return "람다형식입니다";}) ();
+
+        //책 134p의 클로저 함수 > 람다 형식 이용
+        let count = (function ( ) { 
+            let localCount = 0; // 이 함수를 전역 변수처럼 사용
+            return function () { //return을 통해 익명함수를 되돌려줌
+                return localCount +=1;
+            };
+        }) ();
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let subArrow = (num1, num2) => num1-num2;
+
+    //함수 실습
+    function ask(q, yes, no) { //q = 질문(문자열)
+        if(confirm(q)) {
+            yes(); //함수를 입력받아 사용
+    }
+    else {
+            no(); //함수를 입력받아 사용
+        }
+    }
+
+    ask(
+        "동의하십니까?",
+        () => {alert("동의하셨습니다"); } , //함수의 내용을 인수로 전달 : 화살표함수
+        function() { alert("취소버튼을 누르셨습니다"); } //표현삭험슈(익명함수)
+    );
+    </script>
+</body>
+</html>

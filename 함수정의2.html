@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function functionNameAnother(){ //매개변수x
+            document.write("홍길동입니다"); //함수내용 출력
+        } //return 할당하지않고 함수 선언 끝
+
+        //명시적(선언적)함수 실습1
+        function introName(name) {
+            document.write(`<p>안녕하세요 ${name}입니다.반갑습니다</p>`);
+        }
+        introName("홍길동");
+
+        //명시적(선언적)함수 실습2
+        function introNameReturn(name) {
+            return `<p>안녕하세요 ${name}입니다.반갑습니다</p>`
+        }
+        document.write(introNameReturn("홍길동"));
+
+        //명시적(선언적)함수 실습3
+        function introNameReturnLog(name) {
+            console.log("함수가 출력되었습니다");
+            return `<p>안녕하세요 ${name}입니다.반갑습니다</p>`;
+        }
+        document.write(introNameReturnLog("홍길동"));
+
+        //명시적(선언적)함수 실습4
+        function area(num1,num2) {
+            let result = num1*num2;
+            return result;
+        }
+        document.write(area(5,10));
+
+        //명시적(선언적)함수 실습5
+        function avrg(array) {
+            let avrgNum=0;
+            let sumNum=0;
+            for (num of array) {
+                sumNum+= num; //배열안의 모든 값 더함
+            }
+            avrgNum = sumNum/(array.length);
+            return avrgNum;
+        }
+        let numArray = [30,60,40,60,20];
+        document.write("<br>");
+        document.write(avrg(numArray));
+
+        //동일한 이름의 함수, 매개변수의 개수가 2개 > 호출o
+        function introNameReturn(name,address) {
+            document.write(`<p>안녕하세요 ${name}입니다.${address}에 거주중입니다</p>`);
+        }
+        //동일한 이름의 함수, 매개변수가 1개 >호출x
+        function introNameReturn(name) {
+            document.write(`<p>안녕하세요 ${name}입니다.반갑습니다</p>`);
+        }
+
+        //명시적(선언적)함수 실습6
+        function add(num1,num2) {
+            if (num1 == undefined)
+                num1 = 0;
+        
+            if (num2 == undefined)
+                num2 = 0;
+                return num1 + num2;
+            }
+            document.write(add(5));
+
+            function numPrint(a, ...b) { //매개변수 2개, b는 나머지 매개변수(배열로)
+                document.write("<p>"+a+"</p>");
+                document.write("<p>"+b+"</p>");
+            }document.write(numPrint(1,2,3,4,5)); //배열의 인덱스로 접근가능
+
+
+            function numArgu(a){ //매개변수 1개
+                document.write("<p>"+a+"</p>")
+                document.write("<p>"+arguments[0]+"</p>"); 
+                //arguments는 모든 인수를 참조하여 값을 들고온다
+
+                //선언식 함수과 함수표현식의 차이점
+                a(); //선언식을 사용하면 위치 상관없이 호출가능
+                //b(); //함수표현식은 정의하기 전에 호출할 수 없다.
+
+                function a() {
+                    document.write("<p>선언식 함수입니다</p>")
+                }
+                let b = function() {
+                    document.write("<p>함수표현식입니다</p>")
+                }
+
+                //선언식 함수와 함수표현식이 블록안과 밖에서 어떻게 사용.
+                if (true) {
+                    function innerfunc() {
+                        document.write("<p>블록 안에 만든 선언식 함수</p>")
+                    }
+                    let innerfuncNoname = function() {
+                        document.write("<p>블록 안에 만든 선언식 함수</p>")
+                    };
+                innerfunc();
+                innerfuncNoname();
+                }
+                innerfunc();
+                //innerfuncNoname();//변수가 살아있는 동안에 사용이 가능.
+
+                
+                //화살표함수. 여러줄을 작성할때
+                let hiA = () => {
+                    document.write("<p>안녕</p>")
+                };
+                //화살표 함수 한 줄로 작성할때 : return으로 값 출력
+                let hiReturn = () => "<p>안녕</p>";
+                /*
+                선언식
+                function hiA () {
+                    document.write("<p>안녕</p>")
+                };
+                
+                표현식
+                let hiA = function() {
+                    document.write("<p>안녕</p>")
+                };
+                */
+                hiA();
+                
+                //매개변수가 하나인 화살표함수
+                let numToString = n => String(n);
+                //매개변수가 두개인 화살표 함수
+                let add = (a,b) => a+b;
+            
+                //화살표 함수 실습
+                
+    </script>
+</head>
+<body>
+    
+    <script>
+        //매개변수와 리턴값이 있는 함수의 형태
+        //선언적 (명시적) 함수
+        function functionName(name) { //매개변수 name, 값을 받아올 수있다
+            document.write(name); //html에 출력하는 코드
+            return name+"입니다; //name입니다를 반환, 
+            //모든 함수는 리턴값을 갖는다. 할당되지않은 경우 undefined
+        } //함수 선언 끝
+
+        //함수 호출
+        functionName("홍길동");
+
+        //함수 작성 실습
+        function () //매개변수가 없기 때문에 괄호 비움.
+        { 
+            document.write("안녕하세요.반갑습니다");
+        }
+        intro();
+
+        functionNameAnother();
+        introName("홍길동");
+    </script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+    
+    //3.화살표식 함수
+    
+    let add = (a,b) => a+b; //return값으로 출력됨
+    let messageAlert = () => alert("화살표식 함수로 바꿨습니다");
+
+    //4.재귀함수 1~n까지합
+
+    function PlusPlus (n) {
+        if(n==0) {
+            return 0; //0일때0돌려줌
+        }
+        else {
+            return n += PlusPlus(n-1);
+        }
+    }
+    
+    //6.객체
+    let myDog = {
+        name : "Happy",
+        friends : ["Mini","Choco"] //여러명이라 []
+    };
+    myDog.bark = function () {
+        console.log("bow-bow");
+    };
+
+    //7.리터럴 값으로 객체 생성
+
+    let book = {
+        title : "Nature od Code",
+        pay : "30000원", //'원' 이라는 단위가 나와서 "" 단위로작성
+        author : "다니엘 쉬프만",
+        ISBN : "9788968481901",
+        page : "620페이지" //단위, 단위를 뺀다면 숫자형으로
+    };
+
+    //8.생성자 함수 (무게계산)
+    
+
+    //마트에서 계산 100g당 얼마
+    //weight가 항상 100으로 들어오지 않는다고 가정
+    //100g 당 pay값을 구하기 : pay / weight * 100
+    function Product(name,weight,pay) {
+        this.name = name;
+        this.weight = weight;
+        this.pay = pay;
+        this.calculate = function (g) { //들고 온 무게
+            return g*(Math.round(this.pay/this.weight * 100)); //들고 온 무게와 금액 계산
+        };
+    }
+
+    //함수3문제
+
+    function power (n,m) { 
+        if (m) { //m값이 있을때 true
+        let pow = 1 //곱해지는값
+            for (let i =0; i<m ; i++){
+                pow *= n //n*n*n 
+                //n = n*n >> 2*2 => 4 >> 4*4
+            }
+            return pow;
+        }
+        else { //m == undefined
+            return n*n;
+        }
+    }
+
+    //2번
+
+    let multiply = function (...num) { //...a 나머지매개변수 or arguments
+        for (let n of num) //of를 사용하면 안의 값 가져올수있음 
+        {
+            mult *=n;
+        }
+        return mult;
+    };
+
+    //3번
+
+    function meetAt(year, month, day) {
+        if (month == undefined) {
+            //year값이 있고, month와 day값이 없다.
+            return `${year}년`;
+        }
+        else if(day == undefined) {
+            //year값이 있고, month의 값이 있는지 없는지 모른다.
+            return `${year}년 ${month}월`;
+        }
+        else {
+            //그 외 year와 month와 day의 값이 있음
+            return `${year}/${month}/${day}`;
+        }
+    }
+    
+    //객체3문
+
+    const myStorage = {
+        car : {
+            inside: {
+                gloveBox: "maps",
+                passengerSeat: "crumbs"
+            },
+            outside: {
+                trunk: "jack"
+            }
+        }
+    };
+    console.log(myStorage.car.inside.gloveBox);
+
+    //2
+
+    function MyProduct(name,pay) {
+        this.name=name;
+        this.pay=pay;
+        this.keep=function() {
+            return `${this.name}을 보관했습니다`;
+        };
+        this.getPay= function() {
+            return this.pay;
+        };
+    }
+    let MyProduct1 = new MyProduct("book",6000);
+    let MyProduct2 = new MyProduct("pencil",2000);
+    let MyProduct3 = new MyProduct("hat",8000);
+
+    //3
+
+    function User() {
+        this.id=id;
+        this.money=money;
+        this.buyList= [];
+        this.charge= function(plusMoney) {
+            this.money += plusMoney;
+        };
+        this.buy= function(Product) {
+            this.money-Product.getPay();
+            this.buyList.push(Product.name);
+        };
+    }
+    let user1 = new User("Harry",10000);
+
+    //응용3문제
+
+    function 1cmRenew(a,b) {
+        let n=1; //1~n까지 증가시키면서 b와 곱함
+        let 1cmNum = 0; // 최소 공배수일수도 있는 수
+        while( true ) { 
+            1cmNum = n*b;
+            if (1cmNum % a == 0 ){
+            //나머지가 0이라면 반복문을 나옴
+            break;
+        }
+        n++ //1씩 증가
+    }
+    return 1cmNum;
+    }
+
+    //2 객체함수.오브젝트 접근
+
+    let myProfile = {
+        name : '김개발',
+        address : {
+            email : 'geabal@gmail.com',
+            home : '위워크'
+        },
+        myFavorit : {
+            food : [{
+                name : '샐러드',
+                price : 3500
+            }, {
+                name : '삼겹살',
+                price : 15000
+            }],
+            hobby: ['축구']
+        }
+    }
+    function getAnswer(myProfile) {
+        return myProfile.myFavorit.food[0].name;
+    }
+
+    //3.for문과 배열과 생성자 함수와 객체
+
+    function Profile(name,phoneNumber) {
+        this.name = name;
+        this.phoneNumber=phoneNumber;
+        this.calling=function(){
+            return `${name}에게 전화하고 있습니다`;
+        };
+    }
+    let Profilebook = [];
+
+    Profilebook.push(new Profile("Harry",0543236543));
+    Profilebook.push(new Profile("Sherlock",0994372684));
+    Profilebook.push(new Profile("John",0120331254));
+
+    // ptofilebook[0] = new Profile("Harry",0543236543) 동일.
+    // let myProfile = new Profile("Harry",0543236543) 과 같은 형식.
+
+
+
+    //내장객체 응용 1.
+    
+    //글자 가운데를 출력하는 함수
+    //홀수 : 1개, 짝수 : 2개
+
+    function printCenter(string) {
+        let centerIndex = Math.floor(string.length/2);
+        if (string.length%2 == 1) { //홀수 = 2로 나눴을때 1
+        //문자열의 길이가 홀수일때만 작동
+        //let centerIndex = string.length/2
+        //centerIndex = Math.floor(centerIndex) 같은방식.
+        return string.charAt(centerIndex);
+    }
+    else {
+        //문자열의 길이가 짝수일때 따로 만듬.
+        //두 수 중에 마지막 자리의 위치를 알아냄
+        //첫번째 자리의 위치는 1을 빼면된다.
+        //두개의 위치로 문자열을 가져오는 메소드 string.slice(n,m)
+        return string.slice(centerIndex-1,centerIndex+1);
+    }
+
+    }
+/*
+    let string = "fall"; //이 글자로 규칙 파악하기      h는0 e는1 l은2 ..
+
+    // 1 이라는 인덱스 값 확인 > 인덱스 위치 2
+    // 가운데 글자위치 찾기 : 전체길이에서 2로 나눴을때
+    // 글자길이가 5일때 2로 나누면 2.5 > 인덱스 값이 2.5가 있느냐?
+    // 인덱스 값은 항상 정수! > 2.5라는 값을 어떻게 사용할 것 인가?
+    // Math.floor 아래소수점자리 버림.
+    // String.charAt(n) 를 이용해서 접근
+
+*/
+
+
+    //응용2.넌센스 Quiz 만들기
+
+    let quizArray = [
+        { quiz: "왕이 넘어지면 킹콩", answer:"킹콩"},
+        { quiz: "오리가 얼면", answer:"언덕"},
+        { quiz: "한국의 수도는", answer:"서울"},
+        { quiz: "5+9", answer:"14"},
+        { quiz: "5+10", answer:"15"}
+    ];
+
+    function randomQuiz(quizArray,count) {
+        //문제를 count만큼 출력 : quizArray[0].quiz
+        //랜덤하게 출력 : 인덱스값이 랜덤 quizArray[randomNum].quiz
+        //문제출력 : prompt
+        //count만큼 출력 : 반복(for)
+
+        let score = 0;
+        let randomNum = 0;
+
+        for (let i=0; i<<count; i++) {
+            let randomNum = Math.floor(Math.random()*quizArray.length); //퀴즈의 갯수만큼 곱.
+        let answer = prompt (quizArray[randomNum].quiz);
+        if(answer == quizArray[randomNum].answer) {
+            score++;
+        }
+        }
+        return `${count}개 중에서 ${score}개 맞췄습니다`;
+    }
+    </script>
+</body>
+</html>
